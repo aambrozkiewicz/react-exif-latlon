@@ -36,13 +36,18 @@ function App() {
       <section>
         {photos.map((photo) => (
           <div key={photo.id} className="photo">
-            <img className="photo" src={URL.createObjectURL(photo.file)} />
+            <img
+              className="photo"
+              src={URL.createObjectURL(photo.file)}
+              alt=""
+            />
             <div className="photo-summary">
               {photo.lat}, {photo.lon}
               <div>
                 <a
                   href={`https://www.google.com/maps?q=${photo.lat},${photo.lon}`}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Otwórz w Google Maps
                 </a>
