@@ -21,18 +21,14 @@ div.photo {
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   margin: 10px 0 10px;
   column-gap: 10px;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 div.photo-summary {
   flex-grow: 1;
 }
 
-img.photo {
-  height: 125px;
-  padding: 10px;
-}
-
-/* CSS */
 .button-39 {
   background-color: #ffffff;
   border: 1px solid rgb(209, 213, 219);

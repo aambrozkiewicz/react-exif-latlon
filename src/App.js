@@ -11,7 +11,7 @@ function App() {
       EXIF.getData(file, () => {
         const tags = EXIF.getAllTags(file);
 
-        var lat = ConvertDMSToDD(...tags.GPSLatitude, tags.GPLatitudeRef);
+        var lat = ConvertDMSToDD(...tags.GPSLatitude, tags.GPSLatitudeRef);
         var lon = ConvertDMSToDD(...tags.GPSLongitude, tags.GPSLongitudeRef);
         setPhotos((p) => [...p, { lat, lon, file, id: Date.now() }]);
       });
@@ -36,14 +36,10 @@ function App() {
       <section>
         {photos.map((photo) => (
           <div key={photo.id} className="photo">
-            <img
-              className="photo"
-              src={URL.createObjectURL(photo.file)}
-              alt=""
-            />
+            <div className="photo-name">{photo.file.name}</div>
             <div className="photo-summary">
               {photo.lat}, {photo.lon}
-              <div>
+              <div style={{ marginTop: "10px" }}>
                 <a
                   href={`https://www.google.com/maps?q=${photo.lat},${photo.lon}`}
                   target="_blank"
