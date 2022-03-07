@@ -28,7 +28,8 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>exif photos</h1>
+        <h1>LatLon</h1>
+        <p>Extract Latitude & Longitude from photos using EXIF</p>
       </header>
       <section>
         <input type="file" multiple onChange={onChange} />
@@ -36,26 +37,38 @@ function App() {
       <section>
         {photos.map((photo) => (
           <div key={photo.id} className="photo">
-            <div className="photo-name">{photo.file.name}</div>
-            <div className="photo-summary">
+            <div className="text-muted">{photo.file.name}</div>
+            <div>
               {photo.lat}, {photo.lon}
-              <div style={{ marginTop: "10px" }}>
-                <a
-                  href={`https://www.google.com/maps?q=${photo.lat},${photo.lon}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Otwórz w Google Maps
-                </a>
-              </div>
+            </div>
+            <div>
+              <a
+                href={`https://www.google.com/maps?q=${photo.lat},${photo.lon}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Google ↗
+              </a>
             </div>
           </div>
         ))}
       </section>
       <section style={{ display: photos.length ? "block" : "none" }}>
         <button className="button-39" onClick={toCSV}>
-          Pobierz do CSV
+          Download CSV
         </button>
+      </section>
+      <section>
+        <a
+          href="https://github.com/aambrozkiewicz/react-exif-latlon"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png"
+            style={{ width: "30px" }}
+          />
+        </a>
       </section>
     </div>
   );
